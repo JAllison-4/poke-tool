@@ -1,16 +1,22 @@
-import Title from "./Title/Title"
-import RandomPokemon from "./RandomPokemon"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./Header/Header";
+import RandomPokemon from "./RandomPokemon/RandomPokemon";
+import GuessTheCry from "./GuessTheCry/GuessTheCry";
+// import OtherPage from "./OtherPage";
 
-function App(){
+function App() {
   return (
-    <div>
-      <Title />
-      <main>
-        <RandomPokemon />
+    <Router>
+      <Header />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<RandomPokemon />} />
+          <Route path="/guess-cry" element={<GuessTheCry />} />
+          {/* <Route path="/other" element={<OtherPage />} /> */}
+        </Routes>
       </main>
-    </div>
-)
-
+    </Router>
+  );
 }
 
-export default App
+export default App;
