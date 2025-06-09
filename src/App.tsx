@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header/Header";
 import SearchPokemon from "./Pages/SearchPokemon/SearchPokemon"
 import GuessTheCry from "./Pages/GuessTheCry";
+import Home from "./Pages/Home";
 // import OtherPage from "./OtherPage";
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
       <Header />
       <main className="main-content">
         <Routes>
-          <Route path="/search-pokemon" element={<SearchPokemon />} />
+          <Route path="/" element={<Home />} />
           <Route path="/guess-cry" element={<GuessTheCry />} />
+          <Route path="/search-pokemon" element={<SearchPokemon />} />
           {/* <Route path="/other" element={<OtherPage />} /> */}
         </Routes>
       </main>

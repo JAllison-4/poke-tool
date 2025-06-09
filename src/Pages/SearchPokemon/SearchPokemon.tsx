@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Autocomplete, Card, TextField, Typography, Box, Chip } from "@mui/material";
+import {
+  Autocomplete,
+  Card,
+  TextField,
+  Typography,
+  Box,
+  Chip,
+} from "@mui/material";
 import "./SearchPokemon.css";
 import allPokemonNames from "../../Data/pokemon-names.json"; // Assuming this is a JSON file with all Pokémon names
 
@@ -14,11 +21,24 @@ function capitalize(s: string) {
 }
 
 const typeColors: { [key: string]: string } = {
-  fire: "#F08030", water: "#6890F0", grass: "#78C850", electric: "#F8D030",
-  ice: "#98D8D8", fighting: "#C03028", poison: "#A040A0", ground: "#E0C068",
-  flying: "#A890F0", psychic: "#F85888", bug: "#A8B820", rock: "#B8A038",
-  ghost: "#705898", dragon: "#7038F8", dark: "#705848", steel: "#B8B8D0",
-  fairy: "#EE99AC", normal: "#A8A878"
+  fire: "#F08030",
+  water: "#6890F0",
+  grass: "#78C850",
+  electric: "#F8D030",
+  ice: "#98D8D8",
+  fighting: "#C03028",
+  poison: "#A040A0",
+  ground: "#E0C068",
+  flying: "#A890F0",
+  psychic: "#F85888",
+  bug: "#A8B820",
+  rock: "#B8A038",
+  ghost: "#705898",
+  dragon: "#7038F8",
+  dark: "#705848",
+  steel: "#B8B8D0",
+  fairy: "#EE99AC",
+  normal: "#A8A878",
 };
 
 async function fetchPokemon(name: string): Promise<PokeData | null> {
@@ -57,17 +77,19 @@ export default function PokemonSearch() {
         onChange={handleSelect}
         renderInput={(params) => (
           <TextField
-          {...params}
-          label="Search Pokémon"
-          variant="outlined"
-          sx={{
-          input: { color: "#ccc", background: "#353740" },
-          label: { color: "#ccc" },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": { borderColor: "#555" },
-            "&:hover fieldset, &.Mui-focused fieldset": { borderColor: "#888" }
-          },
-          }}
+            {...params}
+            label="Search Pokémon"
+            variant="outlined"
+            sx={{
+              input: { color: "#ccc", background: "#353740" },
+              label: { color: "#ccc" },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": { borderColor: "#555" },
+                "&:hover fieldset, &.Mui-focused fieldset": {
+                  borderColor: "#888",
+                },
+              },
+            }}
           />
         )}
         sx={{
@@ -75,7 +97,8 @@ export default function PokemonSearch() {
           mb: 3,
           width: 260,
           mx: "auto",
-          "& .MuiAutocomplete-popupIndicator, & .MuiAutocomplete-clearIndicator": { color: "#ef5350" },
+          "& .MuiAutocomplete-popupIndicator, & .MuiAutocomplete-clearIndicator":
+            { color: "#ef5350" },
           "& .MuiAutocomplete-paper": { backgroundColor: "#2b2c30" },
           "& .MuiAutocomplete-listbox": { backgroundColor: "#2b2c30" },
         }}

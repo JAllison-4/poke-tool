@@ -23,15 +23,22 @@ function Header() {
             userSelect: "none",
           }}
         >
-          PokeTool
+          PokéTool
         </Typography>
         <Box sx={{ marginLeft: "auto", display: "flex", gap: "1.5em" }}>
+          <Button
+            component={Link}
+            to="/"
+            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
+          >
+            Home
+          </Button>
           <Button
             component={Link}
             to="/search-pokemon"
             sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
           >
-            Search Pokemon
+            Search Pokémon
           </Button>
           <Button
             component={Link}
