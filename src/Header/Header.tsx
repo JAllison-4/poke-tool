@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 
 function Header() {
   return (
-    <AppBar position="static" sx={{ background: "#444", height: "5rem", justifyContent: "center", paddingX: 2 }}>
+    <AppBar position="static" sx={{ background: "#2b2c30", height: "5rem", justifyContent: "center", paddingX: 2 }}>
       <Toolbar disableGutters sx={{ position: "relative" }}>
         <Typography
           variant="h4"
