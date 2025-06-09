@@ -22,7 +22,7 @@ export default function Home() {
         <br />
         - Search Pokémon by name<br />
         - Play “Guess the Cry”<br />
-        - Analyze your team’s strengths and weaknesses<br />
+        - Analyze your team’s weaknesses<br />
         - (And more features coming soon!)
       </Typography>
       <Button
