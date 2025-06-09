@@ -36,7 +36,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  gap: .75em;
+  gap: 0.75em;
 }
 
 .type {
@@ -66,6 +66,10 @@
 
 .compact .pokemon-name {
   font-size: 1.2rem;
+}
+
+.compact .types {
+  gap: 0.25em;
 }
 
 .compact .type {

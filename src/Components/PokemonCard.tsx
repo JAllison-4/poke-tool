@@ -51,10 +51,11 @@ export default function PokemonCard({ pokemon, small = false, onRemove }: Pokemo
               key={type}
               label={capitalize(type)}
               className="type"
+              size={small ? "small" : "medium"}
               sx={{
                 background: typeColors[type] || "#aaa",
                 color: "#fff",
-                minWidth: small ? 64 : 88,
+                // minWidth: small ? 64 : 88,
                 justifyContent: "center",
                 fontSize: small ? "0.75em" : undefined,
                 mx: 0.5,

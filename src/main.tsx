@@ -8,6 +8,11 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
+  typography(palette) {
+    return {
+      fontFamily: 'Quicksand, Arial, sans-serif',
+    };
+  },
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
