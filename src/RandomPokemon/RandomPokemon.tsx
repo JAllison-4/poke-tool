@@ -44,50 +44,45 @@ function RandomPokemon() {
     getRandPokemon().then(setPokemon);
   }
 
-  // On mount, fetch the first Pokemon
   useEffect(() => {
     getRandomPokemon();
   }, []);
 
   return (
-    <div className="random-pokemon-root">
-      <div className="pokemon-image-wrapper">
-        {pokemon && pokemon.sprite ?(
-        <img
-          src={pokemon.sprite}
-          alt={pokemon.name}
-          className="pokemon-image"
-        />
+   <div className="random-pokemon-root">
+    <div className="display-box">
+      {pokemon && pokemon.sprite ? (
+          <img
+            src={pokemon.sprite}
+            alt={pokemon.name}
+            className="pokemon-image"
+          />
         ) : (
           <div style={{ width: "130px", height: "130px" }} />
         )}
-      </div>
-      <div className="display-box">
-        {!pokemon ? (
-          <div>Loading...</div>
-        ) : (
-          <div>
-            <h2 className="pokemon-name">{capitalize(pokemon.name)}</h2>
-            <div className="types">
-              {pokemon.types.map(type => (
-                <span
-                  key={type}
-                  className="type"
-                  style={{ background: typeColors[type] || "#aaa" }}
-                >
-                  {capitalize(type)}
-                </span>
-              ))}
-            </div>
+      {pokemon && (
+        <>
+          <h2 className="pokemon-name">{capitalize(pokemon.name)}</h2>
+          <div className="types">
+        {pokemon.types.map(type => (
+          <span
+            key={type}
+            className="type"
+            style={{ background: typeColors[type] || "#aaa" }}
+          >
+            {capitalize(type)}
+          </span>
+        ))}
           </div>
-        )}
-      </div>
-      <button
-        className="button"
-        onClick={getRandomPokemon}
-      >
-        Random Pokémon
-      </button>
+        </>
+      )}
+    </div>
+    <button
+      className="button"
+      onClick={getRandomPokemon}
+    >
+      Random Pokémon
+    </button>
     </div>
   );
 }
