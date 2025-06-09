@@ -10,7 +10,7 @@ function App() {
       <Header />
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<RandomPokemon />} />
+          <Route path="/search-pokemon" element={<RandomPokemon />} />
           <Route path="/guess-cry" element={<GuessTheCry />} />
           {/* <Route path="/other" element={<OtherPage />} /> */}
         </Routes>

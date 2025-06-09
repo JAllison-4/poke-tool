@@ -28,10 +28,10 @@ function Header() {
         <Box sx={{ marginLeft: "auto", display: "flex", gap: "1.5em" }}>
           <Button
             component={Link}
-            to="/"
+            to="/search-pokemon"
             sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
           >
-            Random Pokémon
+            Search Pokemon
           </Button>
           <Button
             component={Link}
