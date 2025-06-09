@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import "./GuessTheCry.css";
+import { Alert, Box, Button, TextField, Typography } from "@mui/material";
 
 type PokeData = {
   name: string;
   cry: string;
 };
+
+function isSafari() {
+  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+}
 
 async function getRandomPokemonId(): Promise<number> {
   // First, fetch the total count of Pokémon species
@@ -19,27 +19,34 @@ async function getRandomPokemonId(): Promise<number> {
 }
 
 async function getPokemon(): Promise<PokeData | null>{
-    try {
-        const id = await getRandomPokemonId();
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        if (!response.ok) return null;
-        const data = await response.json();
+  try {
+    const id = await getRandomPokemonId();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    if (!response.ok) return null;
+    const data = await response.json();
 
-        return {
-            name: data.name,
-            cry: data.cries?.latest 
-        };
-    } catch {
-        return null;
-    }
+    return {
+      name: data.name,
+      cry: data.cries?.latest 
+    };
+  } catch {
+    return null;
+  }
 }
 
 function GuessTheCry() {
+  if (isSafari()) {
+    return (
+      <Alert severity="warning" sx={{ maxWidth: 420, m: "3rem auto", textAlign: "center" }}>
+        Sorry, this game is not supported on Safari. Please try a different browser like Chrome or Firefox.
+      </Alert>
+    );
+  }
+  
   const [pokemon, setPokemon] = useState<PokeData | null>(null);
   const [guess, setGuess] = useState("");
   const [result, setResult] = useState<string | null>(null);
 
-  // Load a new Pokémon when the game starts or resets
   function newGame() {
     setGuess("");
     setResult(null);
