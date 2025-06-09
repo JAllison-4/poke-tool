@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
@@ -56,7 +55,10 @@ function RandomPokemon() {
 
   return (
     <Box className="random-pokemon-root">
-      <Card className="display-box">
+      <Card
+        className="display-box"
+        sx={{ background: "rgba(34, 36, 43, 0.92)" }}
+      >
         {pokemon && pokemon.sprite ? (
           <Box
             component="img"
@@ -85,7 +87,17 @@ function RandomPokemon() {
           </>
         )}
       </Card>
-      <Button className="button" onClick={getRandomPokemon} variant="contained">
+      <Button
+        className="button"
+        onClick={getRandomPokemon}
+        variant="contained"
+        sx={{
+          background: "#ef5350",
+          color: "#fff",
+          boxShadow: "0 2px 6px #222",
+          "&:hover": { background: "#c62828" },
+        }}
+      >
         Random Pokémon
       </Button>
     </Box>
