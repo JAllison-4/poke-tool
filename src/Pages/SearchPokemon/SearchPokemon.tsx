@@ -26,17 +26,19 @@ export default function PokemonSearch() {
         onChange={handleSelect}
         renderInput={(params) => (
           <TextField
-          {...params}
-          label="Search Pokémon"
-          variant="outlined"
-          sx={{
-          input: { color: "#ccc", background: "#353740" },
-          label: { color: "#ccc" },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": { borderColor: "#555" },
-            "&:hover fieldset, &.Mui-focused fieldset": { borderColor: "#888" }
-          },
-          }}
+            {...params}
+            label="Search Pokémon"
+            variant="outlined"
+            sx={{
+              input: { color: "#ccc", background: "#353740" },
+              label: { color: "#ccc" },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": { borderColor: "#555" },
+                "&:hover fieldset, &.Mui-focused fieldset": {
+                  borderColor: "#888",
+                },
+              },
+            }}
           />
         )}
         sx={{
@@ -44,7 +46,8 @@ export default function PokemonSearch() {
           mb: 3,
           width: 260,
           mx: "auto",
-          "& .MuiAutocomplete-popupIndicator, & .MuiAutocomplete-clearIndicator": { color: "#ef5350" },
+          "& .MuiAutocomplete-popupIndicator, & .MuiAutocomplete-clearIndicator":
+            { color: "#ef5350" },
           "& .MuiAutocomplete-paper": { backgroundColor: "#2b2c30" },
           "& .MuiAutocomplete-listbox": { backgroundColor: "#2b2c30" },
         }}
