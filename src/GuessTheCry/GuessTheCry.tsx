@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import "./GuessTheCry.css";
 
 type PokeData = {
@@ -69,39 +72,42 @@ function GuessTheCry() {
   }
 
   return (
-    <div style={{ maxWidth: 420, margin: "3rem auto", textAlign: "center" }}>
-      <h2 className="page-subtitle">Guess the Pokémon by its Cry!</h2>
-      <button
+    <Box sx={{ maxWidth: 420, margin: "3rem auto", textAlign: "center" }}>
+      <Typography variant="h6" className="page-subtitle">
+        Guess the Pokémon by its Cry!
+      </Typography>
+      <Button
+        variant="contained"
         onClick={playCry}
         disabled={!pokemon || !pokemon.cry}
-        style={{ marginBottom: "2rem" }}
+        sx={{ mb: 2 }}
       >
         {pokemon ? "Play Cry 🔊" : "Loading..."}
-      </button>
-      <form onSubmit={checkGuess} style={{ marginTop: "1.5rem" }}>
-        <input
+      </Button>
+      <Box component="form" onSubmit={checkGuess} sx={{ mt: 3 }}>
+        <TextField
           type="text"
           value={guess}
-          onChange={e => setGuess(e.target.value)}
+          onChange={(e) => setGuess(e.target.value)}
           placeholder="Type your guess"
           disabled={!pokemon || !!result}
-          style={{ padding: "0.5em", fontSize: "1em" }}
+          size="small"
         />
-        <button type="submit" disabled={!pokemon || !!result} style={{ marginLeft: "1em" }}>
+        <Button type="submit" disabled={!pokemon || !!result} sx={{ ml: 1 }} variant="outlined">
           Guess
-        </button>
-      </form>
+        </Button>
+      </Box>
       {result && (
-        <div style={{ marginTop: "2em", fontWeight: "bold", color: result === "Correct!" ? "green" : "#ef5350" }}>
+        <Box sx={{ mt: 2, fontWeight: "bold", color: result === "Correct!" ? "green" : "#ef5350" }}>
           {result}
-          <div>
-            <button onClick={newGame} style={{ marginTop: "1.2em" }}>
+          <Box>
+            <Button onClick={newGame} sx={{ mt: 1.2 }} variant="text">
               Play Again
-            </button>
-          </div>
-        </div>
+            </Button>
+          </Box>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 }
 

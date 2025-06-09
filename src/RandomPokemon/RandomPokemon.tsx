@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import "./RandomPokemon.css";
 
 type PokeData = {
@@ -50,45 +56,39 @@ function RandomPokemon() {
   }, []);
 
   return (
-    <div className="random-pokemon-root">
-      <div className="pokemon-image-wrapper">
-        {pokemon && pokemon.sprite ?(
-        <img
-          src={pokemon.sprite}
-          alt={pokemon.name}
-          className="pokemon-image"
-        />
+    <Box className="random-pokemon-root">
+      <Box className="pokemon-image-wrapper">
+        {pokemon && pokemon.sprite ? (
+          <img src={pokemon.sprite} alt={pokemon.name} className="pokemon-image" />
         ) : (
-          <div style={{ width: "130px", height: "130px" }} />
+          <Box width={130} height={130} />
         )}
-      </div>
-      <div className="display-box">
+      </Box>
+      <Paper className="display-box">
         {!pokemon ? (
-          <div>Loading...</div>
+          <CircularProgress />
         ) : (
-          <div>
-            <h2 className="pokemon-name">{capitalize(pokemon.name)}</h2>
-            <div className="types">
-              {pokemon.types.map(type => (
-                <span
+          <Box textAlign="center">
+            <Typography variant="h5" className="pokemon-name">
+              {capitalize(pokemon.name)}
+            </Typography>
+            <Box className="types">
+              {pokemon.types.map((type) => (
+                <Chip
                   key={type}
                   className="type"
-                  style={{ background: typeColors[type] || "#aaa" }}
-                >
-                  {capitalize(type)}
-                </span>
+                  label={capitalize(type)}
+                  style={{ background: typeColors[type] || "#aaa", color: "#fff" }}
+                />
               ))}
-            </div>
-          </div>
+            </Box>
+          </Box>
         )}
-      </div>
-      <button
-        className="button"
-        onClick={getRandomPokemon}
-      >
+      </Paper>
+      <Button variant="contained" onClick={getRandomPokemon} className="button">
         Random Pokémon
-      </button>
-    </div>
+      </Button>
+    </Box>
   );
 }
 
