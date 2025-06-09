@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
 import "./RandomPokemon.css";
 
 type PokeData = {
@@ -49,41 +55,40 @@ function RandomPokemon() {
   }, []);
 
   return (
-   <div className="random-pokemon-root">
-    <div className="display-box">
-      {pokemon && pokemon.sprite ? (
-          <img
+    <Box className="random-pokemon-root">
+      <Card className="display-box">
+        {pokemon && pokemon.sprite ? (
+          <Box
+            component="img"
             src={pokemon.sprite}
             alt={pokemon.name}
             className="pokemon-image"
           />
         ) : (
-          <div style={{ width: "130px", height: "130px" }} />
+          <Box sx={{ width: 130, height: 130 }} />
         )}
-      {pokemon && (
-        <>
-          <h2 className="pokemon-name">{capitalize(pokemon.name)}</h2>
-          <div className="types">
-        {pokemon.types.map(type => (
-          <span
-            key={type}
-            className="type"
-            style={{ background: typeColors[type] || "#aaa" }}
-          >
-            {capitalize(type)}
-          </span>
-        ))}
-          </div>
-        </>
-      )}
-    </div>
-    <button
-      className="button"
-      onClick={getRandomPokemon}
-    >
-      Random Pokémon
-    </button>
-    </div>
+        {pokemon && (
+          <>
+            <Typography variant="h4" component="h2" className="pokemon-name">
+              {capitalize(pokemon.name)}
+            </Typography>
+            <Box className="types">
+              {pokemon.types.map((type) => (
+                <Chip
+                  key={type}
+                  label={capitalize(type)}
+                  className="type"
+                  sx={{ background: typeColors[type] || "#aaa" }}
+                />
+              ))}
+            </Box>
+          </>
+        )}
+      </Card>
+      <Button className="button" onClick={getRandomPokemon} variant="contained">
+        Random Pokémon
+      </Button>
+    </Box>
   );
 }
 
