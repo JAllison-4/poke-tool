@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Box
       sx={{
-        maxWidth: 500,
+        maxWidth: "800px",
         m: "4rem auto",
         p: 3,
         borderRadius: 3,
@@ -22,6 +22,7 @@ export default function Home() {
         <br />
         - Search Pokémon by name<br />
         - Play “Guess the Cry”<br />
+        - Analyze your team’s strengths and weaknesses<br />
         - (And more features coming soon!)
       </Typography>
       <Button
@@ -38,8 +39,18 @@ export default function Home() {
         to="/guess-cry"
         variant="outlined"
         color="secondary"
+        sx={{ mr: 2 }}
       >
         Guess the Cry
+      </Button>
+      <Button
+        component={Link}
+        to="/team-analyzer"
+        variant="outlined"
+        color="secondary"
+        sx={{ mr: 2 }}
+      >
+        Analyze your Team
       </Button>
     </Box>
   );

@@ -26,9 +26,6 @@ export default function PokemonSearch() {
         value={selected ? capitalize(selected) : null}
         onChange={handleSelect}
         label="Search Pokémon"
-        autoHighlight
-        autoSelect
-        clearOnEscape
       />
 
       {pokemon && <PokemonCard pokemon={pokemon} />}

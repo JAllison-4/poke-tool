@@ -25,25 +25,32 @@ function Header() {
         >
           PokéTool
         </Typography>
-        <Box sx={{ marginLeft: "auto", display: "flex", gap: "1.5em" }}>
+        <Box sx={{ marginLeft: "auto", display: "flex", gap: "1em" }}>
           <Button
             component={Link}
             to="/"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
+            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
           >
             Home
           </Button>
           <Button
             component={Link}
+            to="/team-analyzer"
+            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
+          >
+            Team Analyzer
+          </Button>
+          <Button
+            component={Link}
             to="/search-pokemon"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
+            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
           >
             Search Pokémon
           </Button>
           <Button
             component={Link}
             to="/guess-cry"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1.1em" }}
+            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
           >
             Guess the Cry
           </Button>

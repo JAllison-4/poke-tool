@@ -1,39 +1,48 @@
 import React from "react";
-import { Card, Typography, Box, Chip } from "@mui/material";
+import { Card, Typography, Box, Chip, IconButton } from "@mui/material";
 import { PokeData, capitalize } from "../utils/pokemon";
+import { typeColors } from "../utils/typeChart";
 import "./PokemonCard.css";
-
-const typeColors: { [key: string]: string } = {
-  fire: "#F08030", water: "#6890F0", grass: "#78C850", electric: "#F8D030",
-  ice: "#98D8D8", fighting: "#C03028", poison: "#A040A0", ground: "#E0C068",
-  flying: "#A890F0", psychic: "#F85888", bug: "#A8B820", rock: "#B8A038",
-  ghost: "#705898", dragon: "#7038F8", dark: "#705848", steel: "#B8B8D0",
-  fairy: "#EE99AC", normal: "#A8A878"
-};
 
 interface PokemonCardProps {
   pokemon: PokeData;
+  small?: boolean;
+  onRemove?: () => void;
 }
 
-export default function PokemonCard({ pokemon }: PokemonCardProps) {
+export default function PokemonCard({ pokemon, small = false, onRemove }: PokemonCardProps) {
+  const imgSize = small ? 72 : 115;
+  const cardWidth = small ? 180 : 320;
+  const nameVariant = small ? "h6" : "h4";
   return (
     <Card
-      className="display-box"
-      sx={{ minHeight: 230, maxWidth: 320, mx: "auto" }}
+      className={`display-box${small ? " compact" : ""}`}
+      sx={{ minHeight: small ? 180 : 230, maxWidth: cardWidth, mx: "auto", p: small ? 1 : 2 }}
     >
+      {onRemove && (
+        <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 1 }}>
+          <IconButton
+            size="small"
+            onClick={onRemove}
+            className="remove-button"
+          >
+            ✕
+          </IconButton>
+        </Box>
+      )}
       {pokemon.sprite ? (
         <Box
           component="img"
           src={pokemon.sprite}
           alt={pokemon.name}
           className="pokemon-image"
-          sx={{ mx: "auto", mt: 2, width: 115, height: 115 }}
+          sx={{ mx: "auto", mt: 2, width: imgSize, height: imgSize }}
         />
       ) : (
-        <Box sx={{ width: 130, height: 130, mx: "auto", mt: 2 }} />
+        <Box sx={{ width: imgSize, height: imgSize, mx: "auto", mt: 2 }} />
       )}
       <>
-        <Typography variant="h4" component="h2" className="pokemon-name">
+        <Typography variant={nameVariant} component="h2" className="pokemon-name">
           {capitalize(pokemon.name)}
         </Typography>
         <Box className="types" sx={{ justifyContent: "center" }}>
@@ -45,8 +54,9 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
               sx={{
                 background: typeColors[type] || "#aaa",
                 color: "#fff",
-                minWidth: 88,
+                minWidth: small ? 64 : 88,
                 justifyContent: "center",
+                fontSize: small ? "0.75em" : undefined,
                 mx: 0.5,
               }}
             />
