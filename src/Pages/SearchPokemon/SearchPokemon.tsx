@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Autocomplete, Card, TextField, Typography, Box, Chip } from "@mui/material";
 import "./SearchPokemon.css";
-import allPokemonNames from "../Data/pokemon-names.json"; // Assuming this is a JSON file with all Pokémon names
+import allPokemonNames from "../../Data/pokemon-names.json"; // Assuming this is a JSON file with all Pokémon names
 
 type PokeData = {
   name: string;

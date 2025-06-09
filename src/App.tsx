@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header/Header";
-import SearchPokemon from "./SearchPokemon/SearchPokemon"
-import GuessTheCry from "./GuessTheCry/GuessTheCry";
+import SearchPokemon from "./Pages/SearchPokemon/SearchPokemon"
+import GuessTheCry from "./Pages/GuessTheCry";
 // import OtherPage from "./OtherPage";
 
 function App() {

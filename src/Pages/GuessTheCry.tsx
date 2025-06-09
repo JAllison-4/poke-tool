@@ -59,8 +59,6 @@ function GuessTheCry() {
 
   function playCry() {
     if (pokemon && pokemon.cry) {
-      //const audio = new Audio(pokemon.cry);
-      let defaultAudio = "http://www.sousound.com/music/healing/healing_01.mp3"
       console.log("Playing:", pokemon.cry);
       const audio = new Audio(pokemon.cry)
       audio.volume = 1;
