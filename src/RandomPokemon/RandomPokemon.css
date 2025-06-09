@@ -7,8 +7,7 @@
 
 .display-box {
   min-width: 240px;
-  min-height: 230px;
-  padding: 2em 2em;
+  padding: 2em;
   background: rgba(34, 36, 43, 0.92);
   border-radius: 16px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.19);
