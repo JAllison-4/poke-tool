@@ -7,8 +7,17 @@ import Box from "@mui/material/Box";
 
 function Header() {
   return (
-    <AppBar position="static" sx={{ background: "#2b2c30", height: "5rem", justifyContent: "center", paddingX: 2 }}>
-      <Toolbar disableGutters sx={{ position: "relative" }}>
+    <AppBar
+      position="static"
+      sx={{
+        background: "#2b2c30",
+        height: "5rem",
+        justifyContent: "center",
+        paddingX: 2,
+        width: "100%",
+      }}
+    >
+      <Toolbar disableGutters sx={{ position: "relative", width: "100%" }}>
         <Typography
           variant="h4"
           component="h1"
@@ -25,32 +34,61 @@ function Header() {
         >
           PokéTool
         </Typography>
-        <Box sx={{ marginLeft: "auto", display: "flex", gap: "1em" }}>
+        <Box
+          sx={{
+            marginLeft: "auto",
+            display: "flex",
+            gap: { xs: 1, sm: "1em" },
+            flexWrap: { xs: "wrap", sm: "nowrap" },
+            width: { xs: "100%", sm: "auto" },
+            justifyContent: { xs: "center", sm: "flex-end" },
+          }}
+        >
           <Button
             component={Link}
             to="/"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
+            sx={{
+              color: "#ef5350",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "1em",
+            }}
           >
             Home
           </Button>
           <Button
             component={Link}
             to="/team-analyzer"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
+            sx={{
+              color: "#ef5350",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "1em",
+            }}
           >
             Team Analyzer
           </Button>
           <Button
             component={Link}
             to="/search-pokemon"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
+            sx={{
+              color: "#ef5350",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "1em",
+            }}
           >
             Search Pokémon
           </Button>
           <Button
             component={Link}
             to="/guess-cry"
-            sx={{ color: "#ef5350", textTransform: "none", fontWeight: 600, fontSize: "1em" }}
+            sx={{
+              color: "#ef5350",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "1em",
+            }}
           >
             Guess the Cry
           </Button>

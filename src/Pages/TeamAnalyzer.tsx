@@ -43,9 +43,7 @@ export default function TeamAnalyzer() {
       });
     });
 
-    return Array.from(weak).filter(
-      (t) => !resist.has(t) && !immune.has(t)
-    );
+    return Array.from(weak).filter((t) => !resist.has(t) && !immune.has(t));
   }
 
   return (
@@ -60,14 +58,25 @@ export default function TeamAnalyzer() {
         onClick={addPokemon}
         disabled={!selected || team.length >= 6}
         variant="contained"
-        sx={{ ml: 1, mt: 2 }}
       >
         Add to Team
       </Button>
-      <Box sx={{ mt: 4, display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "center" }}>
+      <Box
+        sx={{
+          mt: 4,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 2,
+          justifyContent: "center",
+        }}
+      >
         {team.map((pokemon: PokeData) => (
           <Box key={pokemon.name} sx={{ textAlign: "center" }}>
-            <PokemonCard pokemon={pokemon} small onRemove={() => removePokemon(pokemon.name)}/>
+            <PokemonCard
+              pokemon={pokemon}
+              small
+              onRemove={() => removePokemon(pokemon.name)}
+            />
           </Box>
         ))}
       </Box>
@@ -77,7 +86,14 @@ export default function TeamAnalyzer() {
           <Typography variant="h6" sx={{ mb: 1 }}>
             Team Weaknesses
           </Typography>
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              justifyContent: "center",
+            }}
+          >
             {weaknesses.map((type) => (
               <Chip
                 key={type}

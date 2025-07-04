@@ -30,3 +30,17 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}

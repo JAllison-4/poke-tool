@@ -10,22 +10,28 @@ interface PokemonCardProps {
   onRemove?: () => void;
 }
 
-export default function PokemonCard({ pokemon, small = false, onRemove }: PokemonCardProps) {
+export default function PokemonCard({
+  pokemon,
+  small = false,
+  onRemove,
+}: PokemonCardProps) {
   const imgSize = small ? 72 : 115;
-  const cardWidth = small ? 180 : 320;
+  const cardWidth = small ? 180 : 280;
   const nameVariant = small ? "h6" : "h4";
   return (
     <Card
       className={`display-box${small ? " compact" : ""}`}
-      sx={{ minHeight: small ? 180 : 230, maxWidth: cardWidth, mx: "auto", p: small ? 1 : 2 }}
+      sx={{
+        minHeight: small ? 180 : 230,
+        maxWidth: cardWidth,
+        width: cardWidth,
+        mx: "auto",
+        p: small ? 1 : 2,
+      }}
     >
       {onRemove && (
         <Box sx={{ position: "absolute", top: 8, right: 8, zIndex: 1 }}>
-          <IconButton
-            size="small"
-            onClick={onRemove}
-            className="remove-button"
-          >
+          <IconButton size="small" onClick={onRemove} className="remove-button">
             ✕
           </IconButton>
         </Box>
@@ -42,7 +48,11 @@ export default function PokemonCard({ pokemon, small = false, onRemove }: Pokemo
         <Box sx={{ width: imgSize, height: imgSize, mx: "auto", mt: 2 }} />
       )}
       <>
-        <Typography variant={nameVariant} component="h2" className="pokemon-name">
+        <Typography
+          variant={nameVariant}
+          component="h2"
+          className="pokemon-name"
+        >
           {capitalize(pokemon.name)}
         </Typography>
         <Box className="types" sx={{ justifyContent: "center" }}>
