@@ -42,6 +42,10 @@ npm run preview
 - Material UI
 - PokeAPI
 
+## Live Demo
+
+[bit.ly/poketool-app](https://bit.ly/poketool-app)
+
 ## Known Limitations
 
 - Guess the Cry is not supported on Safari.
