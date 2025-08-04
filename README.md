@@ -10,8 +10,9 @@ This project is a simple Pokémon utility built with React and Vite. It includes
 
 Install dependencies:
 
-bash
+```bash
 npm install
+```
 
 Start the development server:
 
