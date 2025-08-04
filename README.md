@@ -16,20 +16,23 @@ npm install
 
 Start the development server:
 
-bash
+```bash
 npm run dev
+```
 
 The dev server will start on `localhost` and reload on changes.
 
 Build the project:
 
-bash
+```bash
 npm run build
+```
 
 Preview the production build:
 
-bash
+```bash
 npm run preview
+```
 
 ## Tech Stack
 
