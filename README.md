@@ -1,19 +1,43 @@
 # Poké Tool
 
-This project is a simple Pokémon utility built with React and Vite. It includes tools like searching for Pokémon and a "Guess the Cry" game.
+This project is a simple Pokémon utility built with React and Vite. It includes several tools:
+
+- Search Pokémon
+- Guess the Cry
+- Team Analyzer
 
 ## Getting Started
 
 Install dependencies:
 
-```bash
+bash
 npm install
-```
 
 Start the development server:
 
-```bash
+bash
 npm run dev
-```
 
 The dev server will start on `localhost` and reload on changes.
+
+Build the project:
+
+bash
+npm run build
+
+Preview the production build:
+
+bash
+npm run preview
+
+## Tech Stack
+
+- React
+- Vite
+- TypeScript
+- Material UI
+- PokeAPI
+
+## Known Limitations
+
+- Guess the Cry is not supported on Safari.
